@@ -23,7 +23,7 @@ Christmas tree with 5 feet, 10 ornaments, and lights off
 class ChristmasTree
     attr_accessor :height, :ornaments, :lights_on
   
-    def initialize(height)
+    def initialize(height, ornaments, lights_on)
       @height = height
       @ornament = 0
       @lights_on = false
@@ -53,7 +53,7 @@ class ChristmasTree
       @lights_on = false
     end
   
-    def self.celebrate(height, gifts)
+    def self.celebrate(height, gift)
       christmasTree = ChristmasTreee.new(height)
       puts "Building a #{height}-foot Christmas tree"
       puts christmasTree.to_string
