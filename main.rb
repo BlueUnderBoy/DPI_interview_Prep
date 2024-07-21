@@ -6,4 +6,4 @@ gift = [
   Gift.new("Doll", "Blue"),
 ]
 
-ChristmasTree.celebrate(5, gifts)
+ChristmasTree.celebrate(5, gift)
