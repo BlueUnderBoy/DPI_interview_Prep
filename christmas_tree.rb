@@ -23,9 +23,9 @@ Christmas tree with 5 feet, 10 ornaments, and lights off
 class ChristmasTree
     attr_accessor :height, :ornaments, :lights_on
   
-    def initialize(height, ornaments, lights_on)
+    def initialize(height)
       @height = height
-      @ornament = 0
+      @ornaments = 0
       @lights_on = false
     end
   
@@ -35,14 +35,18 @@ class ChristmasTree
   
     def lights_status
       if @lights_on
-        return "light is on"
+        return "lights on"
       else
-        return "light is off"
+        return "lights off"
       end
     end
   
     def to_string
-      "Christmas tree with #{@height} feet, #{@ornaments} ornaments, and #{lights_status}"
+      if @lights_on
+        "Christmas tree with #{@height} feet, #{@ornaments} ornaments, and #{lights_status}"
+      else 
+        "Christmas tree with #{@height} feet and #{@ornaments} ornaments"
+      end
     end
   
     def turn_on_light
@@ -54,25 +58,25 @@ class ChristmasTree
     end
   
     def self.celebrate(height, gift)
-      christmasTree = ChristmasTree.new(height, self.ornaments, self.lights_on)
+      christmasTree = ChristmasTree.new(height)
       puts "Building a #{height}-foot Christmas tree"
       puts christmasTree.to_string
       puts "Adding ornaments..."
-      christmasTree.add_decoration(10)
+      christmasTree.add_ornaments(10)
       puts christmasTree.to_string
       puts "Turning on the lights..."
-      christmasTree.light_on
+      christmasTree.turn_on_light
       puts christmasTree.to_string
   
-      puts "Placing #{gifts.count} gifts under the tree"
-      gifts.each do |gift|
-        
+      puts "Placing #{gift.count} gifts under the tree"
+      gift.each do |gift|
+        puts gift.description
       end
   
       puts "Turning off the lights..."
-      christmasTree.light_off
-      puts christmasTree.to_string
-  
+      christmasTree.turn_off_light
+      puts christmasTree.to_string + ", and #{christmasTree.lights_status}" 
+
       christmasTree
     end
   end
