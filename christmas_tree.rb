@@ -54,7 +54,7 @@ class ChristmasTree
     end
   
     def self.celebrate(height, gift)
-      christmasTree = ChristmasTreee.new(height)
+      christmasTree = ChristmasTree.new(height)
       puts "Building a #{height}-foot Christmas tree"
       puts christmasTree.to_string
       puts "Adding ornaments..."
